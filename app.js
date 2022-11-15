@@ -10,8 +10,18 @@ const server = http.createServer((req,res) => {
         res.write("</html>");
         return res.end();
     }
-    if (url==='/message' && method ==='POST'){
-        fu.writeFileSync("hello.txt","Dandanaka");
+    if (url==='/message' &&  method ==='POST'){
+        const b=[]; 
+        req.on('data',(cj) => {
+            console.log(cj);
+            b.push(cj); 
+        });
+        req.on('end', () => {
+            const pb= Buffer.concat(b).toString();
+            const ms=pb.split('=')[1];
+            fu.writeFileSync("hello.txt", ms);
+        });
+        
         res.statusCode=302;
         res.setHeader('Location','/');
         return res.end();

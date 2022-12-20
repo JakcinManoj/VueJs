@@ -5,7 +5,7 @@ console.log(inputs);
 console.log(uls);
 console.log(buttons);
 
-function fun() {
+const fun = () => {
     const enteredval = inputs.value;
     const listele = document.createElement('li');
     listele.textContent = enteredval;

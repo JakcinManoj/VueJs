@@ -14,14 +14,21 @@
   </head>
   <body>
     <header>
-      <h1>Goals!!!</h1>
+      <h1>!!!Cart!!!</h1>
     </header>
-    <section id="user-goal">
-      <h2>To Do </h2>
-      <!-- <p>{{ outputGoal() }}</p> -->
-      <p v-html="outputGoal()" v-bind:title="message"></p>
-
-      <p>Learn more by visiting <a :href="vueLink">Vue website</a></p>
+    <section id="events">
+      <h2>Confirm</h2>
+      <button v-on:click="add(5)">Add 5</button>
+      <button v-on:click="remove(5)">Remove 5</button><br />
+      <br />
+      <label for="">Your Name: </label>
+      <input
+        type="text"
+        @input="setName($event, '')"
+        @keyup.enter="confirm_input"
+      />
+      <p>Confirmation: {{ confirmedname }}</p>
+      <p>Result: {{ counter }}</p>
     </section>
   </body>
 </html>

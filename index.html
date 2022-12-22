@@ -14,21 +14,17 @@
   </head>
   <body>
     <header>
-      <h1>!!!Cart!!!</h1>
+      <h1>Vue Events</h1>
     </header>
     <section id="events">
-      <h2>Confirm</h2>
-      <button v-on:click="add(5)">Add 5</button>
-      <button v-on:click="remove(5)">Remove 5</button><br />
-      <br />
-      <label for="">Your Name: </label>
-      <input
-        type="text"
-        @input="setName($event, '')"
-        @keyup.enter="confirm_input"
-      />
-      <p>Confirmation: {{ confirmedname }}</p>
+      <h2>Events in Action</h2>
+      <button v-on:click="add(10)">Add 10</button>
+      <button v-on:click="reduce(5)">Subtract 5</button>
       <p>Result: {{ counter }}</p>
+      <label for="">Your Name: </label>
+      <input type="text" ref="namee" placeholder="Enter your Name" v-on:input="setName($event, '')">
+      <button v-on:click="reset">Reset</button>
+      <p> {{ name }}</p>
     </section>
   </body>
 </html>

@@ -3,24 +3,26 @@ const app = Vue.createApp({
     return {
       counter: 0,
       name: '',
-			confirmedname: '',
     };
   },
   methods: {
+    setName(event, lastName) {
+      this.name = event.target.value + " " + lastName;
+    },
     add(num) {
-      this.counter += num;
+      this.counter = this.counter + num;
     },
-    remove(num) {
-      if (this.counter < 1) return;
-      this.counter -= num;
+    reduce(num) {
+      if (this.counter > 0) {
+        this.counter = this.counter - num;
+      }
+      // this.counter--;
     },
-    setName(event) {
-			this.name = `${event.target.value} `;
-		},
-    confirm_input() {
-      this.confirmedname= this.name,
-      console.log(this.confirmedname);
-    }
+    reset() {
+      this.$refs["namee"].value = "",
+      this.name=""
+    },
   },
 });
+
 app.mount("#events");

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jake</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <h1>Hello World</h1>
+    <div id="app">
+      <div v-if="showBooks">
+        <p>{{ name }} - {{ author }} - {{ age }}</p>
+      </div>
+      <button @click="age++">Increase age</button>
+      <button @click="age--">Decrease age</button>
+      <div @click="changeTitle">Change the Title</div>
+      <button @click="toggleshowBooks">
+        <span v-if="showBooks">Hide Book</span>
+        <span v-else>Show Book</span>
+      </button>
+      <div v-show="showBooks">Currentlly Showing
+        <button v-show="showBooks">click me</button>
+      </div>
+      
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,20 +1,29 @@
 const app = Vue.createApp({
-    data() {
-        return {
-            showBooks: true,
-            name: "Deathly Hollows",
-            author: "J.K. Rowling",
-            age:45
-        }
+  data() {
+    return {
+      showBooks: true,
+      title: "The Way of Kings",
+      author: "Brandon Sanderson",
+      age: 45,
+      x: 0,
+      y: 0,
+    };
+  },
+  methods: {
+    toggleShowBooks() {
+      this.showBooks = !this.showBooks;
     },
-    //template:`<h2> I am the Template</h2>`,
-    methods: {
-        changeTitle() {
-            this.name="Goblet of Fire"
-        },
-        toggleshowBooks(){
-            this.showBooks= !this.showBooks
-        }
+    handleEvent(e, data) {
+      console.log(e.type, e);
+      if (data) {
+        console.log(data);
+      }
     },
-})
-app.mount('#app')
+    handleMousemove(e) {
+      this.x = e.offsetX;
+      this.y = e.offsetY;
+    },
+  },
+});
+
+app.mount("#app");
